@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamed Medical Clinic Limited - Quality Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #4A8BBE;
+            --dark-blue: #005F6B;
+            --healing-green: #5A8C7F;
+            --warm-white: #F5F5F5;
+            --light-gray: #E5E5E5;
+            --dark-gray: #333333;
+            --accent-orange: #F2A900;
+            --soft-yellow: #F9E79F;
+            --soothing-pink: #F8BBD0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--warm-white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--soft-yellow);
+        }
+
+        .emergency {
+            background-color: var(--accent-orange);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .emergency-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .emergency-link:hover {
+            color: var(--soft-yellow);
+        }
+
+        .emergency i {
+            margin-right: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(74, 139, 190, 0.8), rgba(0, 95, 107, 0.8)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: var(--dark-gray);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--soft-yellow);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3') center/cover no-repeat;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--warm-white);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: 2rem;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Home Care Section */
+        .home-care {
+            padding: 80px 0;
+            background: linear-gradient(rgba(90, 140, 127, 0.9), rgba(74, 139, 190, 0.9)),
+                        url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: black;
+        }
+
+        /* Accreditation Section */
+        .accreditation {
+            padding: 80px 0;
+            background: linear-gradient(rgba(229, 229, 229, 0.95), rgba(229, 229, 229, 0.95)),
+                        url('https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3') center/cover no-repeat;
+            text-align: center;
+        }
+
+        .accreditation-badge {
+            font-size: 5rem;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3') center/cover no-repeat;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--warm-white);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .feature h4 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        /* Doctors Section */
+        .doctors {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3') center/cover no-repeat;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .doctor-card {
+            background-color: var(--warm-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .doctor-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            padding: 20px;
+        }
+
+        .doctor-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .doctor-info .specialty {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .doctor-info .description {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .doctor-contact {
+            border-top: 1px solid var(--light-gray);
+            padding-top: 15px;
+        }
+
+        .doctor-contact p {
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+
+        .doctor-contact i {
+            color: var(--primary-blue);
+            margin-right: 8px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--soft-yellow);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            color: var(--warm-white);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--warm-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--soft-yellow);
+        }
+
+        .footer-section i {
+            color: var(--soft-yellow);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: var(--warm-white);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section ul li i {
+                margin-right: 5px;
+            }
+        }
+
+        /* These styles should already exist in your CSS */
+        .phone-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .phone-link:hover {
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-hospital logo-icon"></i>
+                <h1>Dynamed Medical Clinic Limited</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="emergency">
+                <a href="#contact" class="emergency-link">
+                    <i class="fas fa-phone"></i> 24Hrs Emergency
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Quality Healthcare Always Available</h2>
+            <p>Dynamed Medical Clinic Limited provides comprehensive medical services with care and professionalism. Open 24 hours, 7 days a week.</p>
+            <a href="#contact" class="btn">Schedule an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Services</h2>
+                <p>We offer a wide range of medical services to meet all your healthcare needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>General Treatment</h3>
+                        <p>Comprehensive medical care for common illnesses and health concerns.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Minor Surgery</h3>
+                        <p>Outpatient surgical procedures performed with precision and care.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class ="fas fa-users"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Family Planning</h3>
+                        <p>Counseling and services to help plan your family's future.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Laboratory Services</h3>
+                        <p>Accurate diagnostic testing with quick result turnaround.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>MCH, OBS & GYN</h3>
+                        <p>Maternal and child health, obstetrics, and gynecology services.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Dental Services</h3>
+                        <p>Complete dental care for the whole family.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>VCT Services</h3>
+                        <p>Voluntary counseling and testing in a confidential environment.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>SHA Registration</h3>
+                        <p>Assistance with Social Health Authority registration and services.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cancer Screening</h3>
+                        <p>Early detection services for various types of cancer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Care Section -->
+    <section class="home-care" id="home-care">
+        <div class="container">
+            <div class="section-title">
+                <h2>Home Care Services</h2>
+                <p>Professional medical care in the comfort of your home.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bandage"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Wound Care</h3>
+                        <p>Professional wound management and dressing changes at home.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Philebotomy & Specimen Collection</h3>
+                        <p>Blood draws and specimen collection in your home.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diabetic and Hypertension Monitoring</h3>
+                        <p>Regular monitoring and education for chronic conditions.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Nutrition Counseling</h3>
+                        <p>Personalized dietary advice for better health outcomes.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Palliative Care</h3>
+                        <p>Comfort and support for patients with serious illnesses.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Post Surgery Care</h3>
+                        <p>Professional care and monitoring after surgical procedures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation Section -->
+    <section class="accreditation">
+        <div class="container">
+            <div class="accreditation-badge">
+                <i class="fas fa-award"></i>
+            </div>
+            <h2>SHA(SOCIAL HEALTH AUTHORITY) Accredited</h2>
+            <p>Dynamed Medical Clinic Limited is recognized by Social Health Authority (SHA) as meeting their standards for quality, safety, and patient care. This accreditation ensures that the facility is authorized to provide services and receive payments under SHA's various health insurance programs.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Committed to providing exceptional healthcare services to our patients.</p>
+            </div>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3" alt="Dynamed Medical Clinic">
+                </div>
+                <div class="about-info">
+                    <h3>Excellence in Healthcare</h3>
+                    <p class="about-description">Dynamed Medical Clinic Limited is a healthcare provider in Juja, dedicated to delivering comprehensive medical services with the highest standards of care and professionalism.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Expert Medical Team</h4>
+                            <p>Experienced healthcare professionals dedicated to your well-being</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <h4>24/7 Availability</h4>
+                            <p>Round-the-clock medical services for your peace of mind</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-star"></i>
+                            <h4>Quality Care</h4>
+                            <p>SHA-Accredited facility maintaining highest healthcare standards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Team</h2>
+                <p>Meet our experienced and dedicated healthcare professionals</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src=alt="Dr. Scosh Chepngeno">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Scosh Chepngeno</h3>
+                        <p class="specialty">General Practitioner</p>
+                        <p class="description">Dedicated to providing comprehensive care people of all ages.</p>
+                        <div class="doctor-contact">
+                            <p><i class="fas fa-clock"></i> Available: Sunday - Sunday</p>
+                            <p>
+                                <i class="fas fa-phone"></i> Ext: 
+                                <a href="tel:+254716528345" class="phone-link">+254 716 528 345</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src=alt="Dr. Wesley Cheruiyot">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Wesley Cheruiyot</h3>
+                        <p class="specialty">General Practitioner</p>
+                        <p class="description">Dedicated to providing comprehensive care people of all ages.</p>
+                        <div class="doctor-contact">
+                            <p><i class="fas fa-clock"></i> Available: Sunday - Sunday</p>
+                            <p>
+                                <i class="fas fa-phone"></i> Ext: 
+                                <a href="tel:+254725542805" class="phone-link">+254 725 542 805</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Dynamed Medical Clinic Limited</h3>
+                <p>Providing quality healthcare services 24/7 with compassion and professionalism.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="#">Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul id="contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Opposite Co-operative Bank Juja Branch</li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+254725542805" class="phone-link">+254 725 542 805</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>Web Development Services - Gen Ziih! Tech Solution Kenya - + 254 796 949 022 - Software Developer - Ngure Lewis Gacheru</p>
+            <p>&copy; 2025 Dynamed Medical Clinic Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+                });
+            });
+        });
+
+        document.querySelector('a[href="#services"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Scroll to services section
+            document.getElementById('services').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+            
+            // After a delay, scroll to home care section
+            setTimeout(() => {
+                document.getElementById('home-care').scrollIntoView({ 
+                    behavior: 'smooth'
+                });
+            }, 2000); // 2 second delay before scrolling to home care
+        });
+
+        document.querySelector('a[href="#doctors"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('doctors').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelector('a[href="#about"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('about').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+
+        document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+
+        // Add emergency link smooth scroll
+        document.querySelector('.emergency-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+
+        // Add smooth scrolling for appointment button
+        document.querySelector('.hero .btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add smooth scrolling for footer contact link
+        document.querySelector('.footer-section a[href="#contact"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
