@@ -1,0 +1,1 @@
+# dynamed-medical-clinic
